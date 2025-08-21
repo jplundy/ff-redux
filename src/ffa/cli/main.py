@@ -15,7 +15,9 @@ app = typer.Typer(help="Fantasy Football Auction CLI")
 
 @app.command()
 def init(
-    config: Path = typer.Option(None, "--config", "-c", help="Path to configuration file"),
+    config: Path = typer.Option(
+        None, "--config", "-c", help="Path to configuration file"
+    ),
 ) -> None:
     """Initialize project resources."""
     ingest_init(config)
@@ -23,7 +25,9 @@ def init(
 
 @app.command()
 def score(
-    config: Path = typer.Option(None, "--config", "-c", help="Path to configuration file"),
+    config: Path = typer.Option(
+        None, "--config", "-c", help="Path to configuration file"
+    ),
 ) -> None:
     """Run scoring logic."""
     scoring_score(config)
@@ -31,7 +35,9 @@ def score(
 
 @app.command()
 def value(
-    config: Path = typer.Option(None, "--config", "-c", help="Path to configuration file"),
+    config: Path = typer.Option(
+        None, "--config", "-c", help="Path to configuration file"
+    ),
 ) -> None:
     """Calculate player values."""
     value_cmd(config)
@@ -39,7 +45,9 @@ def value(
 
 @app.command()
 def report(
-    config: Path = typer.Option(None, "--config", "-c", help="Path to configuration file"),
+    config: Path = typer.Option(
+        None, "--config", "-c", help="Path to configuration file"
+    ),
 ) -> None:
     """Generate reports."""
     report_cmd(config)
@@ -47,11 +55,18 @@ def report(
 
 @app.command()
 def backtest(
-    config: Path = typer.Option(None, "--config", "-c", help="Path to configuration file"),
+    config: Path = typer.Option(
+        None, "--config", "-c", help="Path to configuration file"
+    ),
 ) -> None:
     """Run backtest simulations."""
     backtest_cmd(config)
-    
+
+
+def main() -> None:
+    """Entry point for console scripts."""
+    app()
+
 
 if __name__ == "__main__":
-    app()
+    main()
