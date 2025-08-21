@@ -62,7 +62,6 @@ def backtest(
     """Run backtest simulations."""
     backtest_cmd(config)
 
-
 def main() -> None:
     """Entry point for console scripts."""
     app()
