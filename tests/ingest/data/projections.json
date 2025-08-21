@@ -1,0 +1,5 @@
+[
+  {"Name": "Alice", "_team": "AAA", "_position": "RB", "Week": 1, "Points": 10},
+  {"Name": "Alice", "_team": "AAA", "_position": "RB", "Week": 3, "Points": 5},
+  {"Name": "Bob", "_team": "BBB", "_position": "WR", "Week": 1, "Points": 8}
+]
