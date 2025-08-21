@@ -33,3 +33,10 @@ def test_scoring_and_valuation_pipeline(tmp_project: Path, env: dict[str, str]) 
         reader = csv.DictReader(f)
         row = next(reader)
         assert "Value" in row and float(row["Value"]) > 0
+
+def test_cli_help_shows_commands():
+    result = subprocess.run(["ffa", "--help"], capture_output=True, text=True)
+    assert result.returncode == 0
+    stdout = result.stdout
+    for cmd in ["init", "score", "value", "report", "backtest"]:
+        assert cmd in stdout

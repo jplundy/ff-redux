@@ -1,25 +1,44 @@
 from __future__ import annotations
 
+"""Utilities for loading league configuration files."""
+
 from pathlib import Path
-import json
+from typing import Any
 
-try:
-    import yaml
-except Exception:  # pragma: no cover - fallback when PyYAML missing
-    yaml = None
+import yaml
+
+from .league import LeagueConfig
 
 
-def load_config(path: str | Path) -> dict:
-    """Load a configuration file in JSON or YAML format."""
-    file_path = Path(path)
-    if not file_path.exists():
-        raise FileNotFoundError(file_path)
+def load_league_config(path: str | Path) -> LeagueConfig:
+    """Load a league configuration from a YAML file.
 
-    if file_path.suffix in {".yaml", ".yml"}:
-        if yaml is None:
-            raise RuntimeError("PyYAML is required to load YAML config files")
-        with file_path.open("r", encoding="utf-8") as f:
-            return yaml.safe_load(f) or {}
-    else:
-        with file_path.open("r", encoding="utf-8") as f:
-            return json.load(f)
+    Parameters
+    ----------
+    path:
+        Path to the YAML configuration file.
+
+    Returns
+    -------
+    LeagueConfig
+        The validated league configuration.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the provided path does not exist.
+    ValidationError
+        If the YAML contents do not conform to :class:`LeagueConfig`.
+    """
+
+    path = Path(path)
+    with path.open("r", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+    return LeagueConfig.model_validate(data)
+
+
+def league_config_schema() -> dict[str, Any]:
+    """Return the JSON schema for :class:`LeagueConfig`."""
+
+    return LeagueConfig.model_json_schema()
+
