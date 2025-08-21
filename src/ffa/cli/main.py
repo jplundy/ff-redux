@@ -36,10 +36,11 @@ def value(scores: Path, out: Path) -> None:
 
     calculate_values(scores, out)
 
-
 @app.command()
 def report(
-    config: Path = typer.Option(None, "--config", "-c", help="Path to configuration file"),
+    config: Path = typer.Option(
+        None, "--config", "-c", help="Path to configuration file"
+    ),
 ) -> None:
     """Generate reports."""
     report_cmd(config)
@@ -47,11 +48,12 @@ def report(
 
 @app.command()
 def backtest(
-    config: Path = typer.Option(None, "--config", "-c", help="Path to configuration file"),
+    config: Path = typer.Option(
+        None, "--config", "-c", help="Path to configuration file"
+    ),
 ) -> None:
     """Run backtest simulations."""
     backtest_cmd(config)
-
 
 def main() -> None:
     """Entry point used by tests and console scripts."""
