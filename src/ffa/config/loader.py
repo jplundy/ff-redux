@@ -37,6 +37,14 @@ def load_league_config(path: str | Path) -> LeagueConfig:
     return LeagueConfig.model_validate(data)
 
 
+def load_config(path: str | Path) -> dict[str, Any]:
+    """Load a YAML configuration file into a simple dictionary."""
+
+    path = Path(path)
+    with path.open("r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
 def league_config_schema() -> dict[str, Any]:
     """Return the JSON schema for :class:`LeagueConfig`."""
 
