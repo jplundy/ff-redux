@@ -41,3 +41,4 @@ def league_config_schema() -> dict[str, Any]:
     """Return the JSON schema for :class:`LeagueConfig`."""
 
     return LeagueConfig.model_json_schema()
+
