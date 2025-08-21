@@ -49,7 +49,7 @@ def backtest(
 ) -> None:
     """Run backtest simulations."""
     backtest_cmd(config)
-
+    
 
 if __name__ == "__main__":
     app()

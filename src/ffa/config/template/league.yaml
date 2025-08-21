@@ -1,0 +1,21 @@
+# Template configuration for a fantasy football league
+teams: 12
+budget: 200
+roster_slots:
+  QB: 1
+  RB: 2
+  WR: 2
+  TE: 1
+  FLEX: 1
+  BENCH: 7
+scoring_coefficients:
+  pass_yds: 0.04
+  pass_tds: 4
+  rush_yds: 0.1
+  rush_tds: 6
+bonuses:
+  100_rush_yds: 3
+  100_rec_yds: 3
+thresholds:
+  bust: 5
+  star: 20
