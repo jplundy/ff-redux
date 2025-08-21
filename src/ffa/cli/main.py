@@ -55,3 +55,8 @@ def backtest(
 
 if __name__ == "__main__":
     app()
+
+
+def main() -> None:
+    """Entry point for the CLI."""
+    app()
