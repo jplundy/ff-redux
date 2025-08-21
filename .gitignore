@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv
+.envrc
+.pytest_cache/
+.mypy_cache/
+
+# Data files
+/data/*
+!data/.gitignore
+!data/README.md
