@@ -1,5 +1,3 @@
-__all__ = ["load_config"]
-
 """Configuration utilities for the FFA package."""
 
 from .league import LeagueConfig
