@@ -8,6 +8,10 @@ version = "0.1.0"
 description = "Fantasy football auction value model"
 authors = [{name="FFA Contributors"}]
 requires-python = ">=3.10"
+dependencies = ["typer"]
+
+[project.scripts]
+ffa = "ffa.cli.main:app"
 
 [tool.black]
 line-length = 88
